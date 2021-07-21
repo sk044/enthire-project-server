@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
 const path = require('path');
 
@@ -14,6 +15,8 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     next();
 });
+
+dotenv.config( { path : 'config.env'} );
 
 // connect mongodb database
 require('./database/database')();
