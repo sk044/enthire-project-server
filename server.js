@@ -2,11 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
 const path = require('path');
+const cors = require('cors');
 
 app.use(express.json());
 
 // serving static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
