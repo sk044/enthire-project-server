@@ -1,6 +1,5 @@
-# enthire-project-server
+#### To Run this project Clone it and install modules using
+```
+npm install
+npm start
 
-1.add configs.env in root folder having 
-MONGO_URI = {your URI}
-2.npm i
-3.npm start

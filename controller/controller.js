@@ -1,4 +1,4 @@
-const UploadModel = require('../model/schema');
+const UploadModel = require('../model/model');
 const fs = require('fs');
 
 exports.home = async (req, res) => {

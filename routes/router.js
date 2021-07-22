@@ -1,9 +1,12 @@
-const route = require('express').Router()
+const express = require('express');
+const route = express.Router()
+
 const controller = require('../controller/controller');
 const store = require('../middleware/multer')
 
-// routes
-route.get('/saved', controller.home);
-route.post('/upload', store.array('images', 12) , controller.uploads)
+// API
 
-module.exports = route;
+route.get('/saved', controller.home);
+route.post('/upload', store.array('images', 12) , controller.uploads);
+
+module.exports = route
