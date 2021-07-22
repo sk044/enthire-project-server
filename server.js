@@ -1,10 +1,10 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const bodyparser = require("body-parser");
 
 // connect mongodb database
 const app = express();
-app.use(express.json());
 app.use(cors());
 
 app.use(function(req, res, next) {
@@ -15,9 +15,14 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(express.json());
+
 dotenv.config( { path : 'config.env'} );
 const PORT = process.env.PORT || 8080;
 require('./database/database')();
+
+// parse request to body-parser
+app.use(bodyparser.urlencoded({ extended : true}));
 
 // calling routes
 app.use('/', require('./routes/router'));
